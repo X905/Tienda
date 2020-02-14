@@ -7,17 +7,12 @@ en donde realiza el proyecto https://github.com/Zulu55/Shop/ descrito como un ec
 
 Tecnologías:
 
-Framework .net core
-.Net Standard Library
-Xamarin Forms
-Xamarin Classic 
+Framework .net core - .Net Standard Library - Xamarin Forms -Xamarin Classic 
 
 Herramientas/software :
 
-Visual Studio 2019
-Vyzor
-Git
-Azure DevOps
+Visual Studio 2019 -Vyzor - Git - Azure DevOps
 
 Lista de Reproduccion: https://www.youtube.com/playlist?list=PLuEZQoW9bRnSCZHlieeTk8Xji7JmaTCaq
+
 Juan Carlos Zuluaga: https://github.com/Zulu55
