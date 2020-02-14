@@ -30,6 +30,9 @@
 		//Formato numerico de 2 
 		[DisplayFormat(DataFormatString = "{0:N2}", ApplyFormatInEditMode = false)]
 		public double Stock { get; set; }
+
+		//Relacion uno a muchos (un usuario, muchos productos)
+		public User User { get; set; }
 	}
 
 }

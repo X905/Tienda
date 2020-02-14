@@ -11,6 +11,8 @@ using Microsoft.Extensions.Hosting;
 using Tienda.Web.Data;
 using Microsoft.EntityFrameworkCore.SqlServer;
 using Microsoft.EntityFrameworkCore;
+using Tienda.Web.Data.Entities;
+using Microsoft.AspNetCore.Identity;
 
 namespace Tienda.Web
 {
@@ -26,6 +28,18 @@ namespace Tienda.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddIdentity<User, IdentityRole>(cfg =>
+            {
+                cfg.User.RequireUniqueEmail = true;
+                cfg.Password.RequireDigit = false;
+                cfg.Password.RequiredUniqueChars = 0;
+                cfg.Password.RequireLowercase = false;
+                cfg.Password.RequireNonAlphanumeric = false;
+                cfg.Password.RequireUppercase = false;
+                cfg.Password.RequiredLength = 6;
+            })
+            .AddEntityFrameworkStores<DataContext>();
+
             services.AddDbContext<DataContext>(cfg =>
             {
                 cfg.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
@@ -53,7 +67,7 @@ namespace Tienda.Web
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseAuthentication();
             app.UseRouting();
 
             app.UseAuthorization();
