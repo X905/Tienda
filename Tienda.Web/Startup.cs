@@ -39,9 +39,11 @@ namespace Tienda.Web
                 cfg.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
 
+            //El servicio se activa y muere
             services.AddTransient<SeedDb>();
-
-            services.AddScoped<IRepository, Repository>();
+            //El servicio mantendrá durante su ejecucion 
+            services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<ICountryRepository, CountryRepository>();
             services.AddScoped<IUserHelper, UserHelper>();
 
             services.AddControllersWithViews();
