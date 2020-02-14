@@ -33,6 +33,8 @@ namespace Tienda.Web
 
             services.AddTransient<SeedDb>();
 
+            services.AddScoped<IRepository, Repository>();
+
             services.AddControllersWithViews();
         }
 
