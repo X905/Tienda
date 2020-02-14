@@ -4,7 +4,7 @@
 	using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    public class Product
+    public class Product : IEntity
 	{
 		public int Id { get; set; }
 		[MaxLength(50)]

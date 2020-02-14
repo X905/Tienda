@@ -1,21 +1,15 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Tienda.Web.Data;
-using Microsoft.EntityFrameworkCore.SqlServer;
-using Microsoft.EntityFrameworkCore;
-using Tienda.Web.Data.Entities;
-using Microsoft.AspNetCore.Identity;
-
 namespace Tienda.Web
 {
+    using Microsoft.AspNetCore.Builder;
+    using Microsoft.AspNetCore.Hosting;
+    using Microsoft.AspNetCore.Identity;
+    using Microsoft.EntityFrameworkCore;
+    using Microsoft.Extensions.Configuration;
+    using Microsoft.Extensions.DependencyInjection;
+    using Microsoft.Extensions.Hosting;
+    using Data;
+    using Data.Entities;
+    using Helpers;
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -48,6 +42,7 @@ namespace Tienda.Web
             services.AddTransient<SeedDb>();
 
             services.AddScoped<IRepository, Repository>();
+            services.AddScoped<IUserHelper, UserHelper>();
 
             services.AddControllersWithViews();
         }
