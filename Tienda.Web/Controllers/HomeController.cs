@@ -23,7 +23,7 @@ namespace Chanchitos.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Thanks()
         {
             return View();
         }
