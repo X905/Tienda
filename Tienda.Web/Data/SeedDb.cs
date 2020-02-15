@@ -42,18 +42,18 @@
                     throw new InvalidOperationException("Could not create the user in seeder");
                 }
             }
-
             if (!this.context.Products.Any())
             {
-                this.AddProduct("iPad Air", user);
-                this.AddProduct("Samsung se", user);
-                this.AddProduct("Office 365 License", user);
+                this.AddProduct("iPad Air", user, "~/images/Products/ipad.png");
+                this.AddProduct("Samsung se", user, "~/images/Products/samsung.webp");
+                this.AddProduct("Office 365 License", user, "~/images/Products/office.png");
+                this.AddProduct("Xiaomi Redmi", user, "~/images/Products/xiaomi-redmi-note.jpg");
                 await this.context.SaveChangesAsync();
             }
         }
 
 
-        private void AddProduct(string name, User user)
+        private void AddProduct(string name, User user, string imageUrl)
         {
             this.context.Products.Add(new Product
             {
@@ -61,7 +61,8 @@
                 Price = this.random.Next(1000),
                 IsAvailabe = true,
                 Stock = this.random.Next(100),
-                User = user
+                User = user,
+                ImageUrl = imageUrl
             });
         }
     }
