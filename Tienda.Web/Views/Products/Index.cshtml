@@ -36,10 +36,7 @@
                     <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-danger pull-right"><span class="fa fa-trash"></span></a>
                     
                     <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-info pull-right" style="margin-right:5px !important"> <span class="fa fa-edit"></span></a>
-
                 </div>
-
-
             </div>
             <div id="colapse_@item.Id" class="collapse" aria-labelledby="headingOne">
                 <div class="card-body">
@@ -63,7 +60,6 @@
                             Not Aviable
                         </p>
                     }
-
                     <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-link col-md-6">More Details</a>
                     </div>
 

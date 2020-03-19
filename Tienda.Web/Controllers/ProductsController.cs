@@ -64,16 +64,20 @@
 
                 if (productView.ImageFile != null && productView.ImageFile.Length > 0)
                 {
-                    path = Path.Combine(Directory.GetCurrentDirectory(), 
+                    var guid = Guid.NewGuid().ToString();
+                    var file = $"{guid}.jpg";
+
+                    path = Path.Combine(
+                        Directory.GetCurrentDirectory(),
                         "wwwroot\\images\\Products",
-                        productView.ImageFile.FileName);
+                        file);
 
                     using (var stream = new FileStream(path, FileMode.Create))
                     {
                         await productView.ImageFile.CopyToAsync(stream);
                     }
 
-                    path = $"~/images/Products/{productView.ImageFile.FileName}";
+                    path = $"~/images/Products/{file}";
                 }
 
                 var product = this.ToProduct(productView, path);
@@ -152,14 +156,20 @@
 
                     if (productView.ImageFile != null && productView.ImageFile.Length > 0)
                     {
-                        path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images\\Products", productView.ImageFile.FileName);
+                        var guid = Guid.NewGuid().ToString();
+                        var file = $"{guid}.jpg";
+
+                        path = Path.Combine(
+                            Directory.GetCurrentDirectory(),
+                            "wwwroot\\images\\Products",
+                            file);
 
                         using (var stream = new FileStream(path, FileMode.Create))
                         {
                             await productView.ImageFile.CopyToAsync(stream);
                         }
 
-                        path = $"~/images/Products/{productView.ImageFile.FileName}";
+                        path = $"~/images/Products/{file}";
                     }
 
                     var product = this.ToProduct(productView, path);

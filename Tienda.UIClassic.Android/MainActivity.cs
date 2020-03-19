@@ -4,7 +4,7 @@ using Android.Support.V7.App;
 using Android.Runtime;
 using Android.Widget;
 
-namespace Tienda.UIClassic.Android
+namespace Tienda.UIClassic.Xamdroid
 {
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
     public class MainActivity : AppCompatActivity
